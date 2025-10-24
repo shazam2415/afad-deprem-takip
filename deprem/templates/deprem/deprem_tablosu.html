@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Son Depremler (Django/Python)</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="p-20 p-20">
+
+    <h1 class="text-3xl font-bold border my-4 rounded shadow-lg px-3 py-1">Son Depremler (1.0 ve üzeri)</h1>
+
+    <table class="w-full rounded shadow-lg">
+        <thead>
+            <tr>
+                <th class="px-3 py-1 border-b text-left">ID</th>
+                <th class="px-3 py-1 border-b text-left">Tarih ve Saat</th>
+                <th class="px-3 py-1 border-b text-left">Yer</th>
+                <th class="px-3 py-1 border-b text-left">Şiddet</th>
+                <th class="px-3 py-1 border-b text-left">Derinlik</th>
+                <th class="px-3 py-1 border-b text-left">Enlem</th>
+                <th class="px-3 py-1 border-b text-left">Boylam</th>
+                <th class="px-3 py-1 border-b text-left">Tip</th>
+            </tr>
+        </thead>
+        <tbody>
+            {# Python/Django'dan gelen 'depremler' listesi üzerinde döngü #}
+            {% for deprem in depremler %}
+            <tr class="{% if deprem.magnitude >= 5.0 %} bg-red-700 text-white
+                {% elif deprem.magnitude >= 4.0 %} bg-yellow-300
+                {% elif deprem.magnitude >= 3.0 %} bg-blue-100
+                {% else %} bg-green-100
+                {% endif %}">
+                <td class="px-3 py-1 border-b text-left">{{ deprem.id }}</td>
+                <td class="px-3 py-1 border-b text-left">{{ deprem.eventDate }}</td>
+                <td class="px-3 py-1 border-b text-left">{{ deprem.location }}</td>
+                <td class="px-3 py-1 border-b text-left"><strong>{{ deprem.magnitude }}</strong></td>
+                <td class="px-3 py-1 border-b text-left">{{ deprem.depth }} km</td>
+                <td class="px-3 py-1 border-b text-left">{{ deprem.latitude }}</td>
+                <td class="px-3 py-1 border-b text-left">{{ deprem.longitude }}</td>
+                <td class="px-3 py-1 border-b text-left">{{ deprem.magnitudeType }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">Şu anda güncel deprem verisi çekilemiyor veya hiç kayıt yok.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p class="mt-[20px] font-semibold text-sm">Veri Kaynağı: AFAD API (Python ile çekilmiştir)</p>
+
+</body>
+
+</html>

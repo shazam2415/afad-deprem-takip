@@ -1,0 +1,91 @@
+# ==============================================================================
+# 1. Genel İşletim Sistemi ve IDE Dosyaları
+# ==============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Visual Studio Code (VS Code)
+.vscode/*
+
+# JetBrains IDE'leri (PyCharm, IntelliJ, vb.)
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Nano/Vim/Emacs yedekleri
+*~
+#*#
+\#*#
+.#*
+
+# ==============================================================================
+# 2. Python Ortamları ve Önbellek
+# ==============================================================================
+
+# Sanal Ortam Klasörleri (En Önemlisi!)
+venv/
+env/
+.venv/
+*/venv/
+
+# Derlenmiş Python bytecode dosyaları
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+
+# Python test ve belge araçları
+.pytest_cache/
+htmlcov/
+.tox/
+
+# ==============================================================================
+# 3. Django ve Web Çerçevesi Ayarları
+# ==============================================================================
+
+# Django'nun otomatik olarak oluşturduğu veritabanı (sqlite)
+# SADECE GELİŞTİRME ortamında SQLite kullanılıyorsa eklenmeli!
+# Eğer veritabanını izlemek istiyorsanız bu satırı SİLİN.
+db.sqlite3
+
+# Statik ve Medya Dosyaları (Production ortamında toplananlar)
+/static/ # Django'nun collectstatic ile topladığı dosyalar
+/media/  # Kullanıcı yüklemeleri (Resimler, dosyalar vb.)
+
+# Gizli Ayarlar (Güvenlik için çok önemlidir!)
+# Gerçek veritabanı şifreleri, API anahtarları vb. içeren dosyaları ekleyin.
+# Genellikle 'settings.py' dosyasından içe aktarılan gizli dosya:
+secret_settings.py
+local_settings.py
+.env
+
+# ==============================================================================
+# 4. Bağımlılıklar ve Otomatik Üretilen Dosyalar
+# ==============================================================================
+
+# Paket Yönetim araçları (Pipenv, Poetry, vb.)
+Pipfile.lock
+poetry.lock
+
+# Log dosyaları
+*.log
+log.txt
+
+# Çıktı ve geçici dosyalar
+dist/
+build/
+*.bak
+
+# Node.js (Eğer Frontend için kullanılırsa)
+node_modules/
+npm-debug.log
+yarn-error.log
